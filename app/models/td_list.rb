@@ -1,0 +1,2 @@
+class TdList < ApplicationRecord
+end
