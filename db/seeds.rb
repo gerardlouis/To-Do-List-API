@@ -5,3 +5,15 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+TdList.create([
+    {
+        name: "Household chores",
+        description: "List of Household chores.",
+        updated_by: "Gerard"
+    },
+    {
+        name: "Katie's chores",
+        description: "List of Katie's chores",
+        updated_by: "Katie"
+    }
+])
