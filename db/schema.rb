@@ -10,9 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_05_012859) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_09_033945) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "td_categories", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.string "updated_by"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "td_list_id", null: false
+    t.index ["td_list_id"], name: "index_td_categories_on_td_list_id"
+  end
 
   create_table "td_lists", force: :cascade do |t|
     t.string "name"
@@ -22,4 +32,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_05_012859) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "td_categories", "td_lists"
 end
