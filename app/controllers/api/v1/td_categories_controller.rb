@@ -20,7 +20,7 @@ class Api::V1::TdCategoriesController < ApplicationController
   end
 
   def show
-    td_category = TdCategory.find_by(td_list_id: params[:id])
+    td_category = TdCategory.where(td_list_id: params[:id])
     if td_category
       render json: td_category, status: 200
     else
