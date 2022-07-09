@@ -28,6 +28,16 @@ class Api::V1::TdListsController < ApplicationController
     end
   end
 
+  def destroy
+    td_list = TdList.find_by(id: params[:id])
+    if td_list
+      render json: td_list, status: 200
+      td_list.destroy
+    else
+      render json: { error: "List not found."}
+    end
+  end
+
   private
     def td_list_params
       params.require(:td_list).permit([
